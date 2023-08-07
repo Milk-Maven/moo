@@ -1,7 +1,9 @@
 import { getId } from "./farmtools";
-document.getElementById("")?.onclick;
+import { ElementEvents } from "./fauna";
 type ComponentActions<T> = { [actionName: string]: (state: Readonly<T>) => Partial<T> };
-type ComponentMarkdown = (markdown: Readonly<string>) => void;
+type ComponentMarkDown<T> = { markdown: (state: Readonly<T>) => string };
+type MarkDownOptions = { eventNames: [keyof ElementEvents] };
+// type ComponentMarkdown = ({ eventNames }: MarkDownOptions) => void;
 type Component = {};
 const createComponent = (componentName: string) => {
   const metadata = { id: getId() };
@@ -16,18 +18,19 @@ const createComponent = (componentName: string) => {
           },
         };
       }, {});
-      const markDown = <T>(markdownParams: string) => {
-        const markdown = markdownParams;
+      const setMarkDown = <T>(actionsParams: ComponentMarkDown<T>) => {
+        console.log(state);
+        // eventNames;
+        // const markdown = markdownParams;
         return "";
       };
-      return { markDown };
+      return { setMarkDown };
     };
     return { setActions };
   };
   return { setState };
 };
-document.getElementById("")?.onclick;
-
+// example of component instance
 createComponent("test component")
   .setState({ attribute1: "attribute1", attribute2: "attribute2", backgroundColor: "green", sameAsPropsInReact: true })
   .setActions({
@@ -39,6 +42,10 @@ createComponent("test component")
       return { backgroundColor };
     },
   })
-  .markDown(() => {
-    html`<div></div>`;
-  });
+  .setMarkDown({ markdown: (state) => {
+    state.
+
+  } });
+// .markDown((state) => {
+//   html`<div></div>`;
+// });

@@ -1,11 +1,7 @@
 // a in keyof ElementEvents
+
+// const a: EventNames;
 export type ElementEvents = {
-  /**
-   * Fires when the user aborts the download.
-   * @param ev The event.
-   *
-   * [MDN Reference](https://developer.mozilla.org/docs/Web/API/HTMLMediaElement/abort_event)
-   */
   onabort: ((this: GlobalEventHandlers, ev: UIEvent) => any) | null;
   /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/Element/animationcancel_event) */
   onanimationcancel: ((this: GlobalEventHandlers, ev: AnimationEvent) => any) | null;
