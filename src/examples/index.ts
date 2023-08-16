@@ -8,6 +8,7 @@ type Component<T, U> = {
   markdown: string;
 };
 const renderMarkdown = <T, U>(component: Component<T, U>) => {
+  console.log("starting");
   const element = document.createElement("div");
   element.innerHTML = component.markdown;
   console.log(element.innerHTML);
@@ -39,7 +40,7 @@ const testComponent = createComponent("test component")
     },
   })
   .setMarkDown((state, actions) => {
-    return html`<button moo_value="{state.attribute2}" moo_click="{action.changeBackgroundColor()}"></button>`;
+    return `<button moo_value="{state.attribute2}" moo_click="{action.changeBackgroundColor()}"></button>`;
   });
 
 //generate component into markdown

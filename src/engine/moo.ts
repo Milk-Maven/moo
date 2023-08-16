@@ -16,7 +16,10 @@ export const createComponent = (componentName: string) => {
           },
         };
       }, {} as ActionProcessed<ActionArgument>);
-      type ComponentMarkDown<T> = (state: Readonly<T>, actions: ActionProcessed<ActionArgument>) => string;
+      type ComponentMarkDown<StateArgument> = (
+        state: Readonly<StateArgument>,
+        actions: ActionProcessed<ActionArgument>
+      ) => string;
       const setMarkDown = (markdownParams: ComponentMarkDown<State>) => {
         // actionParams
         const markdown = markdownParams(state, actions);
