@@ -57,9 +57,9 @@ const createApp = () => {
 
 createApp()
   .setProviders({ myProvider, myOtherProvider })
-  .setComponents() => {
+  .setComponents(() => {
     return {
-      myComponent: createComponent()
+      myComponent: createComponent("")
         .setState({
           attribute3: "attribute1",
           attribute2: "attribute2",
@@ -75,10 +75,10 @@ createApp()
           return `<button moo_value="{state.attribute2}" moo_click="{action.changeBackgroundColor()}">here is some button</button>`;
         }),
     };
-  })
-  // .setRoutes(({ myProvider }) => {
-  //   myProvider.actions;
-  //   myComponent.actions.doSomethingElse();
-  //   myOtherComponent.actions.doSomethingElse();
-  //   return "";
-  // });
+  });
+// .setRoutes(({ myProvider }) => {
+//   myProvider.actions;
+//   myComponent.actions.doSomethingElse();
+//   myOtherComponent.actions.doSomethingElse();
+//   return "";
+// });
