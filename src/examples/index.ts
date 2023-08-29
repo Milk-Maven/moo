@@ -24,8 +24,16 @@ const renderMarkdown = <T, U>(component: Component<T, U>) => {
   // const matches = component.markdown.match(MOO_CLICK_REGEX);
   // const matches = component.markdown.match(MOO_FOR_REGEX);
 };
+createComponent()
+  .setState({ hereIsMyState: "starting state", hereIsmOreState: "more state" })
+  .setActions({
+    click: (state) => {
+      console.log(state);
+      return { hereIsMyState: "" };
+    },
+  });
 
-const testComponent = createComponent("testComponent")
+const testComponent = createComponent()
   .setState({ attribute3: "attribute1", attribute2: "attribute2", backgroundColor: "green", sameAsPropsInReact: true })
   .setActions({
     doSomethingElse: (_state) => {
@@ -39,7 +47,7 @@ const testComponent = createComponent("testComponent")
 //generate component into markdown
 renderMarkdown(testComponent);
 
-const testProvider = createProvider("testProvider")
+const testProvider = createProvider()
   .setState({ someStateForThisService: "" })
   .setActions({
     testFunction: (_state) => {
