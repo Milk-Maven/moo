@@ -1,4 +1,3 @@
-import { createComponent } from "./moo-component";
 import { createProvider } from "./moo-provider";
 
 const myProvider = createProvider()
@@ -57,14 +56,16 @@ const createApp = () => {
 
 createApp()
   .setProviders({ myProvider, myOtherProvider })
-  .setComponents(() => {
+  .setComponents((createComponent) => {
     return {
-      myComponent: createComponent("")
-        .setState({
-          attribute3: "attribute1",
-          attribute2: "attribute2",
-          backgroundColor: "green",
-          sameAsPropsInReact: true,
+      myComponent: createComponent({ myProvider, myOtherProvider })
+        .setState((provider) => {
+          return {
+            attribute3: "attribute1",
+            attribute2: "attribute2",
+            backgroundColor: "green",
+            sameAsPropsInReact: true,
+          };
         })
         .setActions({
           doSomethingElse: (_state) => {
